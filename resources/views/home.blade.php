@@ -1,22 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.appadmin')
 
 @section('content')
-<div class="container">
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="index.html">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Blank Page</li>
+    </ol>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+        <div class="col-12">
+            <h1>Blank</h1>
+            <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
         </div>
     </div>
 </div>
