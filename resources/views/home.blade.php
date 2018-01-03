@@ -5,10 +5,9 @@
 <div class="container-fluid">
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="index.html">Dashboard</a>
+    <li class="breadcrumb-item active">
+        Home
     </li>
-    <li class="breadcrumb-item active">Blank Page</li>
     </ol>
     @if (session('status'))
         <div class="alert alert-success">
