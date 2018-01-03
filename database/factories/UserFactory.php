@@ -20,6 +20,14 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => 'Denis Campos',
         'email' => 'denismrc8@gmail.com',
         'password' => $password ?: $password = bcrypt('secret'),
+        'tipo' => 1,
+        'endereco' => 'Rua Rigel', 
+        'bairro' => 'Recanto', 
+        'numero' => 119, 
+        'cidade' => 'São Luis', 
+        'uf' => 'Maranhão', 
+        'pais' => 'Brasil',
+        'cep' => '65070500',
         'remember_token' => str_random(10),
     ];
 });
