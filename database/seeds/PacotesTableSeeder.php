@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Pacote;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class PacotesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       $this->call(UsersTableSeeder::class);
-       $this->call(PacotesTableSeeder::class);
+        factory(\App\Models\Pacote::class, 5)->create();
     }
 }

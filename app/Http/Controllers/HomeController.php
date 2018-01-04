@@ -49,7 +49,7 @@ class HomeController extends Controller
         $id = Auth::user()->id;
 
         $this->repository->update($data, $id);
-        $request->session()->flash('message', ' Dados atualizado com sucesso.');
+        $request->session()->flash('message', ' Dados atualizados com sucesso.');
 
         return redirect()->action('HomeController@index');
     }

@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->integer('tipo')->default(0);
+            $table->string('cpf')->nullable();
+            $table->string('rg')->nullable();
             $table->string('password');
             $table->string('endereco')->nullable();
             $table->string('numero')->nullable();
@@ -27,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('uf')->nullable();
             $table->string('pais')->nullable();
             $table->integer('cep')->nullable();
+            $table->integer('contato')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

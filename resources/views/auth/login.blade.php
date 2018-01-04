@@ -50,26 +50,24 @@
                 @endif
             </div>
 
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                        </label>
-                    </div>
+            <div class="form-check">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Lembrar de mim
+                    </label>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-8 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Login
-                    </button><br><br><br>
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+                <div class="text-center">
+                    <a class="d-block small mt-3" href="{{ route('password.request') }}">
                         Esqueceu a senha?
                     </a>
-                    <a class="btn btn-link" href="{{ route('register') }}">
-                        Register
+                    <a class="d-block small" href="{{ route('register') }}">
+                        Cadastrar
                     </a>
                 </div>
             </div>

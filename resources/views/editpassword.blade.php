@@ -5,17 +5,12 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="{{URL::previous()}}">Home</a>
+        <a href="{{ route('home')}}">Home</a>
     </li>
     <li class="breadcrumb-item active">Editar senha</li>
     </ol>
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
     <div class="row">
-        <div class="col-12">
+        <div class="col-lg-12">
             <h1>Editar Senha</h1> 
             <hr>
             <div class="row">
@@ -36,7 +31,7 @@
                             </div>
                         </div>
                         <div class="card-footer" align="center">
-                            {!! Form::submit('Salvar senha', ['class' => 'btn btn-primary']) !!}                       
+                            {!! Form::submit('Salvar senha', ['class' => 'btn btn-primary btn-block']) !!}                       
                         </div>
                         {!! Form::close() !!}
 

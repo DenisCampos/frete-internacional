@@ -5,21 +5,16 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="{{URL::previous()}}">Home</a>
+        <a href="{{ route('home')}}">Home</a>
     </li>
     <li class="breadcrumb-item active">Editar senha</li>
     </ol>
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
     <div class="row">
-        <div class="col-12">
+        <div class="col-lg-12">
             <h1>Editar Dados</h1> 
             <hr>
             <div class="row">
-                <div class="col-xl-12 col-sm-6 mb-3">
+                <div class="col-xl-12">
                     <div class="card bg-default o-hidden h-100">
                         <div class="card-header">
                             <i class="fa fa-fw fa-pencil-square-o"></i> Edite seus dados abaixo
@@ -30,13 +25,11 @@
                                 <i class="fa fa-fw fa-pencil-square-o"></i>
                             </div>
                             <div class="list-group list-group-flush">
-                                <div class="list-group-item list-group-item-action">
-                                    @include('_form')
-                                </div>
+                               @include('_form')
                             </div>
                         </div>
                         <div class="card-footer" align="center">
-                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}                       
+                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary btn-block']) !!}                       
                         </div>
                         {!! Form::close() !!}
 

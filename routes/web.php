@@ -22,3 +22,6 @@ Route::get('/edit', 'HomeController@edit')->name('edit');
 Route::get('/editpassword', 'HomeController@editpassword')->name('editpassword');
 Route::put('/update', 'HomeController@update')->name('update');
 Route::put('/updatepassword', 'HomeController@updatepassword')->name('updatepassword');
+
+
+Route::get('/pacotes', 'PacotesController@index')->name('pacotes.index');

@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     static $password;
 
     return [
@@ -21,6 +21,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => 'denismrc8@gmail.com',
         'password' => $password ?: $password = bcrypt('secret'),
         'tipo' => 1,
+        'cpf'=> '05376364399', 
+        'rg' => '95434479883121',
         'endereco' => 'Rua Rigel', 
         'bairro' => 'Recanto', 
         'numero' => 119, 
@@ -28,6 +30,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'uf' => 'Maranhão', 
         'pais' => 'Brasil',
         'cep' => '65070500',
+        'contato' => '981699527',
         'remember_token' => str_random(10),
     ];
 });
