@@ -50,8 +50,8 @@
                             <i id="{{$pacote->id}}" style="color:#d9534f" class="fa fa-toggle-off fa-2x"></i>
                             @endif
                         </td>
-                        <td><a class="btn btn-warning" href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td>{{$pacote->id}}</td>
+                        <td><a class="text-warning" href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+                        <td><a class="text-danger" href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}"><i class="fa fa-trash fa-2x"></i></a></td>
                     </tr>
                     @endforeach
                     </tbody>
