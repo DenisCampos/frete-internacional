@@ -24,7 +24,8 @@ class PacotesRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'titulo'=> "required",
+            'descricao' => "required",
         ];
     }
 }

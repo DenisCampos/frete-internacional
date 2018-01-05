@@ -24,6 +24,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(\App\Repositories\UsuariosRepository::class, \App\Repositories\UsuariosRepositoryEloquent::class);
-
+        $this->app->bind(\App\Repositories\PacotesRepository::class, \App\Repositories\PacotesRepositoryEloquent::class);
     }
 }

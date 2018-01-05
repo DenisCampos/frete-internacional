@@ -17,6 +17,7 @@ class CreatePacotesTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->text('descricao');
+            $table->integer('status');
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@
     <!-- theme -->
     <link href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/sb-admin.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -27,18 +28,40 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
                     <a class="nav-link" href="{{ route('home') }}">
                       <i class="fa fa-fw fa-home"></i>
                       <span class="nav-link-text">Home</span>
                     </a>
                   </li>
-                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="{{ route('pacotes.index') }}">
-                      <i class="fa fa-fw fa-folder"></i>
-                      <span class="nav-link-text">Pacotes</span>
-                    </a>
-                  </li>
+                  @if(Auth::user()->tipo==1) 
+                  
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacotes">
+                      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#pacotesSubMenu" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-folder"></i>
+                        <span class="nav-link-text">Pacotes</span>
+                      </a>
+                      <ul class="sidenav-second-level collapse" id="pacotesSubMenu">
+                          <li>
+                            <a href="#">Novo</a>
+                          </li>
+                          <li>
+                            <a href="{{route('pacotes.show')}}">Editar</a>
+                          </li>
+                          <li>
+                            <a  href="{{ route('pacotes.index') }}">Visualizar</a>
+                          </li>
+                      </ul>
+                    </li>
+                  @else
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacotes">
+                      <a class="nav-link" href="{{ route('pacotes.index') }}">
+                        <i class="fa fa-fw fa-folder"></i>
+                        <span class="nav-link-text">Pacotes</span>
+                      </a>
+                    </li>
+                  @endif
+                  
                 </ul>
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item dropdown">
@@ -89,14 +112,14 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Pronto para sair?</h5>
                       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                       </button>
                     </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-body">Sua senssão será encerrada clicando no botão Logout.</div>
                     <div class="modal-footer">
-                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                       <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -117,5 +140,8 @@
     <script src="{{  URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{  URL::asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{  URL::asset('js/sb-admin.min.js') }}"></script>
+    <script src="{{  URL::asset('vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{  URL::asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{  URL::asset('js/sb-admin-datatables.min.js') }}"></script>
 </body>
 </html>

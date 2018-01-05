@@ -25,3 +25,7 @@ Route::put('/updatepassword', 'HomeController@updatepassword')->name('updatepass
 
 
 Route::get('/pacotes', 'PacotesController@index')->name('pacotes.index');
+Route::get('/pacotes/show', 'PacotesController@show')->name('pacotes.show');
+Route::get('/pacotes/edit/{id}', 'PacotesController@edit')->name('pacotes.edit');
+Route::post('/pacotes/updatestatus', 'PacotesController@updatestatus')->name('pacotes.updatestatus');
+
