@@ -9,6 +9,7 @@ class Pacote extends Model
     protected $table = 'pacotes';
 
     protected $fillable = [
+        'titulo',
         'descricao'
     ];
 }

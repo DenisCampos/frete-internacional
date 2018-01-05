@@ -15,6 +15,7 @@ class CreatePacotesTable extends Migration
     {
         Schema::create('pacotes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
             $table->text('descricao');
             $table->timestamps();
         });
