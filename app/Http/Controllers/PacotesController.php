@@ -21,7 +21,7 @@ class PacotesController extends Controller
      */
     public function index()
     {
-        $pacotes = $this->repository->findWhere(['status'=>1]);
+        $pacotes = $this->repository->orderBy('titulo')->findWhere(['status'=>1]);
         return view('pacotes.index', compact('pacotes'));
     }
 
@@ -32,7 +32,7 @@ class PacotesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pacotes.create');
     }
 
     /**
@@ -43,7 +43,10 @@ class PacotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->repository->create($request->all());
+        //$url = $request->get('redirect_to', route('pacotes.show'));
+        $request->session()->flash('message', 'Pacote cadastrado com sucesso.');
+        return redirect()->to(route('pacotes.show'));
     }
 
     /**
@@ -54,7 +57,7 @@ class PacotesController extends Controller
      */
     public function show()
     {
-        $pacotes = $this->repository->all();
+        $pacotes = $this->repository->orderBy('titulo')->all();
         return view('pacotes.show', compact('pacotes'));
     }
 
@@ -66,7 +69,9 @@ class PacotesController extends Controller
      */
     public function edit($id)
     {
-        
+        $pacote = $this->repository->find($id);
+       // dd($pacote);
+        return view('pacotes.edit', compact('pacote'));
     }
 
     /**
@@ -78,7 +83,10 @@ class PacotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $this->repository->update($data, $id);
+        $request->session()->flash('message', ' Dados atualizados com sucesso.');
+        return redirect()->action('PacotesController@show');
     }
 
     public function updatestatus(Request $request)
@@ -97,6 +105,10 @@ class PacotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->repository->delete($id);
+        \Session::flash('message', 'Pacote excluído com sucesso.');
+        //$url = $request->get('redirect_to', route('pacotes.show'));
+
+        return  redirect()->to(route('pacotes.show'));
     }
 }

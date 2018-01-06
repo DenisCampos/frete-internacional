@@ -23,7 +23,7 @@
                         </div>
                     <div class="mr-5">{{$pacote->titulo}}</div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" data-toggle="modal" data-target="#DescricaoPacote" onclick="pacote_conteudo('{{$pacote->titulo}}','{{$pacote->descricao}}')">
+                <a class="card-footer text-white clearfix small z-1" data-toggle="modal" data-target="#DescricaoPacote" onclick="pacote_conteudo('{{$pacote->titulo}}','{{preg_replace('/\r|\n/', '', nl2br($pacote->descricao))}}')">
                     <span class="float-left">Mais Detalhes</span>
                     <span class="float-right">
                         <i class="fa fa-angle-right"></i>

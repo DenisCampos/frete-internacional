@@ -43,7 +43,7 @@
                       </a>
                       <ul class="sidenav-second-level collapse" id="pacotesSubMenu">
                           <li>
-                            <a href="#">Novo</a>
+                            <a href="{{route('pacotes.create')}}">Novo</a>
                           </li>
                           <li>
                             <a href="{{route('pacotes.show')}}">Editar</a>
@@ -55,11 +55,11 @@
                     </li>
                   @else
                   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacotes">
-                      <a class="nav-link" href="{{ route('pacotes.index') }}">
-                        <i class="fa fa-fw fa-folder"></i>
-                        <span class="nav-link-text">Pacotes</span>
-                      </a>
-                    </li>
+                    <a class="nav-link" href="{{ route('pacotes.index') }}">
+                      <i class="fa fa-fw fa-folder"></i>
+                      <span class="nav-link-text">Pacotes</span>
+                    </a>
+                  </li>
                   @endif
                   
                 </ul>

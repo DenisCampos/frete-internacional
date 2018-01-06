@@ -51,7 +51,7 @@
                             @endif
                         </td>
                         <td><a class="text-warning" href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
-                        <td><a class="text-danger" href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}"><i class="fa fa-trash fa-2x"></i></a></td>
+                        <td><a class="text-danger" href="{{ route('pacotes.destroy', ['id' => $pacote->id]) }}"><i class="fa fa-trash fa-2x"></i></a></td>
                     </tr>
                     @endforeach
                     </tbody>
