@@ -2,33 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UsuariosRequest;
-use App\Http\Requests\UserRequest;
-use App\Http\Requests\PasswordRequest;
-use App\Repositories\UsuariosRepository;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UsuariosController extends Controller
+class PedidosController extends Controller
 {
-
-    protected $repository;
-
-    public function __construct(UsuariosRepository $repository){
-        $this->repository = $repository;
-    }
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $usuarios = $this->repository->orderBy('name')->all();
-        return view('usuarios.index', compact('usuarios'));
+        //
     }
 
     /**
@@ -71,8 +56,7 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuario = $this->repository->find($id);
-        return view('usuarios.edit', compact('usuario'));
+        //
     }
 
     /**
@@ -84,10 +68,7 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $this->repository->update($data, $id);
-        $request->session()->flash('message', ' Dados atualizados com sucesso.');
-        return redirect()->action('UsuariosController@index');
+        //
     }
 
     /**

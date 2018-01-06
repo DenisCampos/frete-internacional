@@ -61,7 +61,14 @@
                     </a>
                   </li>
                   @endif
-                  
+                  @if(Auth::user()->tipo==1) 
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacotes">
+                    <a class="nav-link" href="{{ route('usuarios.index') }}">
+                      <i class="fa fa-fw fa-users"></i>
+                      <span class="nav-link-text">Usuários</span>
+                    </a>
+                  </li>
+                  @endif
                 </ul>
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item dropdown">

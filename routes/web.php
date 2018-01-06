@@ -41,6 +41,12 @@ Route::group(['middleware'=>'auth'], function () {
         Route::get('/pacotes/destroy/{id}', 'PacotesController@destroy')->name('pacotes.destroy');
         Route::put('/pacotes/update/{id}', 'PacotesController@update')->name('pacotes.update');
 
+        //usuarios
+        Route::get('/usuarios', 'UsuariosController@index')->name('usuarios.index');
+        Route::get('/usuarios/edit/{id}', 'UsuariosController@edit')->name('usuarios.edit');
+        Route::get('/usuarios/destroy/{id}', 'UsuariosController@destroy')->name('usuarios.destroy');
+        Route::put('/usuarios/update/{id}', 'UsuariosController@update')->name('usuarios.update');
+
     });
 
 });
