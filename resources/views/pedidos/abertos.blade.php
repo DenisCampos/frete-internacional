@@ -28,10 +28,10 @@
                         <th>Pedido</th>
                         <th>Cliente</th>
                         <th>Status</th>
-                        <th>Adicionar Itens</th>
-                        <th>Enviar</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th width="10%">Itens</th>
+                        <th width="10%">Enviar</th>
+                        <th width="10%">Editar</th>
+                        <th width="10%">Excluir</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -39,7 +39,7 @@
                         <th>Pedido</th>
                         <th>Cliente</th>
                         <th>Status</th>
-                        <th>Adicionar Itens</th>
+                        <th>Itens</th>
                         <th>Enviar</th>
                         <th>Editar</th>
                         <th>Excluir</th>
