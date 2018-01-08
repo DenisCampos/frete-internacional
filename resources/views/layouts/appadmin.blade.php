@@ -35,7 +35,6 @@
                     </a>
                   </li>
                   @if(Auth::user()->tipo==1) 
-                  
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacotes">
                       <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#pacotesSubMenu" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-folder"></i>
@@ -43,13 +42,13 @@
                       </a>
                       <ul class="sidenav-second-level collapse" id="pacotesSubMenu">
                           <li>
+                            <a  href="{{ route('pacotes.index') }}">Visualizar</a>
+                          </li>
+                          <li>
                             <a href="{{route('pacotes.create')}}">Novo</a>
                           </li>
                           <li>
                             <a href="{{route('pacotes.show')}}">Editar</a>
-                          </li>
-                          <li>
-                            <a  href="{{ route('pacotes.index') }}">Visualizar</a>
                           </li>
                       </ul>
                     </li>
@@ -62,11 +61,31 @@
                   </li>
                   @endif
                   @if(Auth::user()->tipo==1) 
-                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacotes">
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuario">
                     <a class="nav-link" href="{{ route('usuarios.index') }}">
                       <i class="fa fa-fw fa-users"></i>
                       <span class="nav-link-text">Usuários</span>
                     </a>
+                  </li>
+                  @endif
+                  @if(Auth::user()->tipo==1) 
+                  @else
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pedidos">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#pedidosSubMenu" data-parent="#exampleAccordion">
+                      <i class="fa fa-fw fa-archive"></i>
+                      <span class="nav-link-text">Pedidos</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="pedidosSubMenu">
+                        <li>
+                          <a  href="{{route('pedidos.create')}}">Novo</a>
+                        </li>
+                        <li>
+                          <a href="{{route('pedidos.aberto')}}">Em aberto</a>
+                        </li>
+                        <li>
+                          <a href="{{route('pedidos.index')}}">Realizados</a>
+                        </li>
+                    </ul>
                   </li>
                   @endif
                 </ul>

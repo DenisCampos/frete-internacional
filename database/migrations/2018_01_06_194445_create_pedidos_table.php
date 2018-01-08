@@ -19,6 +19,9 @@ class CreatePedidosTable extends Migration
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->integer('pacote_id')->unsigned();
 			$table->foreign('pacote_id')->references('id')->on('pacotes')->onDelete('cascade');
+			$table->string('rastreio')->nullable();;
+			$table->text('obs_cliente')->nullable();;
+			$table->text('obs_admin')->nullable();;
 			$table->integer('status')->default(0);
             $table->timestamps();
 		});

@@ -29,6 +29,14 @@ Route::group(['middleware'=>'auth'], function () {
     //pacotes
     Route::get('/pacotes', 'PacotesController@index')->name('pacotes.index');
 
+    //pedidos
+    Route::get('/pedidos/create', 'PedidosController@create')->name('pedidos.create');
+    Route::get('/pedidos/store/{pacote}', 'PedidosController@store')->name('pedidos.store');
+    Route::get('/pedidos', 'PedidosController@index')->name('pedidos.index');
+    Route::get('/pedidos/aberto', 'PedidosController@aberto')->name('pedidos.aberto');
+    Route::get('/pedidos/edit/{id}', 'PedidosController@edit')->name('pedidos.edit');
+    Route::get('/pedidos/show', 'PedidosController@show')->name('pedidos.show');
+
 
     Route::group(['middleware' => 'check-permission:admin'], function () {
 
