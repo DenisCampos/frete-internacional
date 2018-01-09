@@ -36,7 +36,13 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('/pedidos/aberto', 'PedidosController@aberto')->name('pedidos.aberto');
     Route::get('/pedidos/edit/{id}', 'PedidosController@edit')->name('pedidos.edit');
     Route::get('/pedidos/show', 'PedidosController@show')->name('pedidos.show');
+    Route::get('/pedidos/enviar/{id}', 'PedidosController@enviar')->name('pedidos.enviar');
 
+    //item pedidos
+    Route::get('/itenspedido/{pedido}', 'ItensPedidoController@index')->name('itenspedido.index');
+    Route::get('/itenspedido/{pedido}/create', 'ItensPedidoController@create')->name('itenspedido.create');
+    Route::post('/itenspedido/{pedido}/store', 'ItensPedidoController@store')->name('itenspedido.store');
+    Route::get('/itenspedido/{pedido}/destroy/{id}', 'ItensPedidoController@destroy')->name('itenspedido.destroy');
 
     Route::group(['middleware' => 'check-permission:admin'], function () {
 

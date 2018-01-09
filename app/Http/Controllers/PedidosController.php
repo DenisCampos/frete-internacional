@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PedidosRequest;
 use App\Repositories\PedidosRepository;
 use App\Repositories\PacotesRepository;
+use App\Repositories\ItensPedidoRepository;
 
 
 class PedidosController extends Controller
@@ -14,11 +15,13 @@ class PedidosController extends Controller
 
     protected $repository;
     private $pacotesrepository;
+    private $itenspedidorepository;
 
 
-    public function __construct(PedidosRepository $repository, PacotesRepository $pacotesrepository){
+    public function __construct(PedidosRepository $repository, PacotesRepository $pacotesrepository, ItensPedidoRepository $itenspedidorepository){
         $this->repository = $repository;
         $this->pacotesrepository = $pacotesrepository;
+        $this->itenspedidorepository = $itenspedidorepository;
     }
 
 
@@ -41,7 +44,6 @@ class PedidosController extends Controller
         $pedidos = $this->repository->scopeQuery(function($query){
             return $query->WhereIn('status',[0,1]);
         })->findWhere(['user_id'=>Auth::user()->id]);
-        
         return view('pedidos.abertos', compact('pedidos'));
     }
 
@@ -70,7 +72,7 @@ class PedidosController extends Controller
         \Session::flash('message', 'Pedido criado com sucesso.');
 
        // $pedidos = $this->repository->findWhereIn('status',[0,1,2])->findWhere(['user_id'=>Auth::user()->id]);
-        return redirect()->to(route('pedidos.index'));
+        return redirect()->to(route('pedidos.aberto'));
     }
 
     /**
@@ -82,6 +84,21 @@ class PedidosController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function enviar($id)
+    {
+        if($this->itenspedidorepository->findWhere(['pedido_id'=> $id])){
+            $data['status'] = 1;
+            $this->repository->update($data, $id);
+            \Session::flash('message', 'Pedido enviado com sucesso.');
+            return redirect()->action('PedidosController@aberto');
+        }else{
+            return redirect()->action('PedidosController@aberto');
+        }
+
+
+
     }
 
     /**

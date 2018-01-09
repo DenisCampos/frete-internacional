@@ -40,34 +40,26 @@ class Pedido extends Model implements Transformable
 
     public function pacote()
     {
-        return $this->belongsTo(Produto::class, 'pacote_id');
+        return $this->belongsTo(Pacote::class, 'pacote_id');
     }
 
     public function getStatusAttribute($status)
     {
-        switch($status){
-            case 0:
-                return "Criado";
-                break;
-            case 1:
-                return "Enviado";
-                break;
-            case 2:
-                return "Em Análise";
-                break;
-            case 3:
-                return "Aceito";
-                break;
-            case 4:
-                return "Transporte";
-                break;
-            case 5:
-                return "Finalizado";
-                break;
-            case 6:
-                return "Cancelado";
-                break;
-            
+        if($status==0){
+            return "Criado";
+        }else if($status==1){
+            return "Enviado";
+        }else if($status==2){
+            return "Em Análise";
+        }else if($status==3){
+            return "Aceito";
+        }else if($status==4){
+            return "Transporte";
+        }else if($status==5){
+            return "Finalizado";
+        }else if($status==6){
+            return "Cancelado";
         }
+        
     }
 }

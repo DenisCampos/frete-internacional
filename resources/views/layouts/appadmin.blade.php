@@ -16,6 +16,17 @@
     <link href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/sb-admin.css') }}" rel="stylesheet">
+
+     <!-- Scripts -->
+     <script src="{{  URL::asset('vendor/jquery/jquery.min.js') }}"></script>
+     <script src="{{  URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+     <script src="{{  URL::asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+     <script src="{{  URL::asset('js/sb-admin.min.js') }}"></script>
+     <script src="{{  URL::asset('vendor/datatables/jquery.dataTables.js') }}"></script>
+     <script src="{{  URL::asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+     <script src="{{  URL::asset('js/sb-admin-datatables.min.js') }}"></script>
+     <!--<script src="{{  URL::asset('js/jquery.maskedinput.min.js') }}"></script>
+     <script src="{{  URL::asset('js/jquery.maskedinput.js') }}"></script> -->
 </head>
 <body>
     <div id="app">
@@ -160,14 +171,5 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{  URL::asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{  URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{  URL::asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{  URL::asset('js/sb-admin.min.js') }}"></script>
-    <script src="{{  URL::asset('vendor/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{  URL::asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{  URL::asset('js/sb-admin-datatables.min.js') }}"></script>
 </body>
 </html>

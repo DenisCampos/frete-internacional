@@ -9,9 +9,9 @@
             <a href="{{ route('home')}}">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.aberto')}}">Pedidos em aberto</a>
+            <a href="{{ route('pedidos.aberto')}}">Em aberto</a>
         </li>
-        <li class="breadcrumb-item active">Pedidos realizados</li>
+        <li class="breadcrumb-item active">Realizados</li>
     </ol>
     <div class="col-lg-12">
         <h1>Pedidos</h1>
