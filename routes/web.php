@@ -37,6 +37,8 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('/pedidos/edit/{id}', 'PedidosController@edit')->name('pedidos.edit');
     Route::get('/pedidos/show', 'PedidosController@show')->name('pedidos.show');
     Route::get('/pedidos/enviar/{id}', 'PedidosController@enviar')->name('pedidos.enviar');
+    Route::put('/pedidos/update/{id}', 'PedidosController@update')->name('pedidos.update');
+    Route::get('/pedidos/destroy/{id}', 'PedidosController@destroy')->name('pedidos.destroy');
 
     //item pedidos
     Route::get('/itenspedido/{pedido}', 'ItensPedidoController@index')->name('itenspedido.index');

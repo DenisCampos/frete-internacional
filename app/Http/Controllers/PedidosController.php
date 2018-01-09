@@ -33,7 +33,7 @@ class PedidosController extends Controller
     public function index()
     {
         $pedidos = $this->repository->scopeQuery(function($query){
-            return $query->WhereIn('status',[2,3,4,5,6]);
+            return $query->WhereIn('status',[1,2,3,4,5,6]);
         })->findWhere(['user_id'=>Auth::user()->id]);
        
         return view('pedidos.index', compact('pedidos'));
@@ -42,7 +42,7 @@ class PedidosController extends Controller
     public function aberto()
     {
         $pedidos = $this->repository->scopeQuery(function($query){
-            return $query->WhereIn('status',[0,1]);
+            return $query->WhereIn('status',[0]);
         })->findWhere(['user_id'=>Auth::user()->id]);
         return view('pedidos.abertos', compact('pedidos'));
     }
@@ -88,7 +88,7 @@ class PedidosController extends Controller
 
     public function enviar($id)
     {
-        if($this->itenspedidorepository->findWhere(['pedido_id'=> $id])){
+        if($this->itenspedidorepository->findWhere(['pedido_id'=> $id])->count() > 0){
             $data['status'] = 1;
             $this->repository->update($data, $id);
             \Session::flash('message', 'Pedido enviado com sucesso.');
@@ -109,7 +109,9 @@ class PedidosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pedido = $this->repository->find($id);
+        $pacotes = $this->pacotesrepository->orderBy('titulo')->pluck('titulo', 'id');
+        return view('pedidos.edit', compact('pedido', 'pacotes'));
     }
 
     /**
@@ -121,7 +123,10 @@ class PedidosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $this->repository->update($data, $id);
+        $request->session()->flash('message', ' Dados atualizados com sucesso.');
+        return redirect()->action('PedidosController@aberto');
     }
 
     /**
@@ -132,6 +137,11 @@ class PedidosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->itenspedidorepository->deleteWhere(['pedido_id' => $id]);
+        $this->repository->delete($id);
+        \Session::flash('message', 'Pedido excluído com sucesso.');
+        //$url = $request->get('redirect_to', route('pacotes.show'));
+
+        return  redirect()->to(route('pedidos.aberto'));
     }
 }

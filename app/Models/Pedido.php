@@ -43,7 +43,7 @@ class Pedido extends Model implements Transformable
         return $this->belongsTo(Pacote::class, 'pacote_id');
     }
 
-    public function getStatusAttribute($status)
+    public function getStatus($status)
     {
         if($status==0){
             return "Criado";
