@@ -9,10 +9,7 @@
             <a href="{{ route('home')}}">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.aberto')}}">Em aberto</a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.aberto')}}">Realizados</a>
+            <a href="{{ route('pedidos.index')}}">Realizados</a>
         </li>
         <li class="breadcrumb-item active">Pedido</li>
     </ol>
@@ -192,6 +189,7 @@
                             </div>
                             @endif
                         </div>
+                        <hr>
                         @endforeach
                     </div>
                 </div>

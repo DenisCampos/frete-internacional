@@ -8,9 +8,6 @@
         <li class="breadcrumb-item">
             <a href="{{ route('home')}}">Home</a>
         </li>
-        <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.aberto')}}">Em aberto</a>
-        </li>
         <li class="breadcrumb-item active">Realizados</li>
     </ol>
     <div class="col-lg-12">

@@ -72,14 +72,23 @@
                   </li>
                   @endif
                   @if(Auth::user()->tipo==1) 
-                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuario">
-                    <a class="nav-link" href="{{ route('usuarios.index') }}">
-                      <i class="fa fa-fw fa-users"></i>
-                      <span class="nav-link-text">Usuários</span>
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pedidos">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#pedidosSubMenu" data-parent="#exampleAccordion">
+                      <i class="fa fa-fw fa-archive"></i>
+                      <span class="nav-link-text">Pedidos</span>
                     </a>
+                    <ul class="sidenav-second-level collapse" id="pedidosSubMenu">
+                        <li>
+                          <a href="{{route('pedidos.admin',['tipo'=>'enviados'])}}">Enviados</a>
+                        </li>
+                        <li>
+                          <a href="{{route('pedidos.admin',['tipo'=>'andamentos'])}}">Andamentos</a>
+                        </li>
+                        <li>
+                          <a href="{{route('pedidos.admin',['tipo'=>'finalizados'])}}">Finalizados</a>
+                        </li>
+                    </ul>
                   </li>
-                  @endif
-                  @if(Auth::user()->tipo==1) 
                   @else
                   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pedidos">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#pedidosSubMenu" data-parent="#exampleAccordion">
@@ -97,6 +106,14 @@
                           <a href="{{route('pedidos.index')}}">Realizados</a>
                         </li>
                     </ul>
+                  </li>
+                  @endif
+                  @if(Auth::user()->tipo==1) 
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuario">
+                    <a class="nav-link" href="{{ route('usuarios.index') }}">
+                      <i class="fa fa-fw fa-users"></i>
+                      <span class="nav-link-text">Usuários</span>
+                    </a>
                   </li>
                   @endif
                 </ul>

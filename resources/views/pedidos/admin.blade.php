@@ -8,17 +8,14 @@
         <li class="breadcrumb-item">
             <a href="{{ route('home')}}">Home</a>
         </li>
-        <li class="breadcrumb-item">
-                <a href="{{ route('pedidos.create')}}">Pedido</a>
-            </li>
-        <li class="breadcrumb-item active">Em aberto</li>
+        <li class="breadcrumb-item active">{{ucfirst($tipo)}}</li>
     </ol>
     <div class="col-lg-12">
         <h1>Pedidos</h1>
         <hr>
         <div class="col-lg-12 card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Pedidos em aberto
+                <i class="fa fa-table"></i> Pedidos {{$tipo}}
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,24 +24,20 @@
                     <tr>
                         <th>Pedido</th>
                         <th>Cliente</th>
-                        <th>Pacote</th>
                         <th>Status</th>
+                        <th width="10%">Detalhar</th>
                         <th width="10%">Itens</th>
-                        <th width="10%">Enviar</th>
-                        <th width="10%">Editar</th>
-                        <th width="10%">Excluir</th>
+                        <th width="10%">Pedido</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>Pedido</th>
                         <th>Cliente</th>
-                        <th>Pacote</th>
                         <th>Status</th>
+                        <th>Detalhar</th>
                         <th>Itens</th>
-                        <th>Enviar</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Pedido</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -52,12 +45,10 @@
                     <tr>
                         <td>{{$pedido->id}}</td>
                         <td>{{$pedido->usuario->name}}</td>
-                        <td>{{$pedido->pacote->titulo}}</td>
                         <td>{{$pedido->getStatus($pedido->status)}}</td>
-                        <td><a class="text-default" href="{{route('itenspedido.index',['pedido'=>$pedido->id])}}"><i class="fa fa-cart-plus fa-2x"></i></td>
-                        <td><a class="text-success" href="{{route('pedidos.enviar',['pedido'=>$pedido->id])}}"><i class="fa fa-sign-in fa-2x"></i></a></td>
-                        <td><a class="text-warning" href="{{route('pedidos.editadmin',['pedido'=>$pedido->id])}}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
-                        <td><a class="text-danger" href="{{route('pedidos.destroy',['pedido'=>$pedido->id])}}"><i class="fa fa-trash fa-2x"></i></a></td>
+                        <td><a href="{{route('pedidos.show',['pedido'=>$pedido->id])}}"><i class="fa fa-file-text-o fa-2x"></i></a></td>
+                        <td><a href="{{route('pedidos.show',['pedido'=>$pedido->id])}}"><i class="fa fa-shopping-cart fa-2x"></i></a></td>
+                        <td><a class="text-warning" href="{{route('pedidos.edit',['pedido'=>$pedido->id])}}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
                     </tr>
                     @endforeach
                     </tbody>

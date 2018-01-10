@@ -35,7 +35,7 @@ class PedidosController extends Controller
         $pedidos = $this->repository->scopeQuery(function($query){
             return $query->WhereIn('status',[1,2,3,4,5,6]);
         })->findWhere(['user_id'=>Auth::user()->id]);
-       
+
         return view('pedidos.index', compact('pedidos'));
     }
 
@@ -47,6 +47,19 @@ class PedidosController extends Controller
         return view('pedidos.abertos', compact('pedidos'));
     }
 
+    public function admin($tipo)
+    {
+        if($tipo=='enviados'){
+            $status = [1,2];
+        }elseif($tipo=='andamentos'){
+            $status = [3,4];
+        }else{
+            $status = [5,6];
+        }
+
+        $pedidos = $this->repository->findWhereIn('status',$status);
+        return view('pedidos.admin', compact('pedidos','tipo'));
+    }
     /**
      * Show the form for creating a new resource.
      *

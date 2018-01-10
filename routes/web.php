@@ -63,6 +63,9 @@ Route::group(['middleware'=>'auth'], function () {
         Route::get('/usuarios/destroy/{id}', 'UsuariosController@destroy')->name('usuarios.destroy');
         Route::put('/usuarios/update/{id}', 'UsuariosController@update')->name('usuarios.update');
 
+        //pedidos
+        Route::get('/pedidos/admin/{tipo}', 'PedidosController@admin')->name('pedidos.admin');
+
     });
 
 });
