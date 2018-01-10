@@ -26,8 +26,8 @@
         {!! Form::number('peso', null , ['class' => 'form-control','step' => '0.001']) !!}
     </div>
     <div class="col-lg-12">
-        {!! Form::label('obs', 'Observação', ['class' => 'control-label']) !!}
-        {!! Form::textarea('obs', null, ['class' => 'form-control']) !!}
+        {!! Form::label('obs_cliente', 'Observação', ['class' => 'control-label']) !!}
+        {!! Form::textarea('obs_cliente', null, ['class' => 'form-control']) !!}
     </div>  
 </div>  
 </div>

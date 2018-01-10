@@ -23,7 +23,8 @@ class CreateItensPedidosTable extends Migration
 			$table->string('cor')->nullable();
 			$table->float('peso',8,3)->nullable();
 			$table->string('link');
-			$table->text('obs')->nullable();
+			$table->text('obs_cliente')->nullable();
+			$table->text('obs_admin')->nullable();
             $table->timestamps();
 		});
 	}

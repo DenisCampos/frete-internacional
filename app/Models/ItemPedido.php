@@ -20,7 +20,8 @@ class ItemPedido extends Model implements Transformable
         'cor',
         'peso',
         'link',
-        'obs'
+        'obs_cliente',
+        'obs_admin',
     ];
 
     public function pedido()

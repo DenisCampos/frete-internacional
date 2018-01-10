@@ -71,7 +71,6 @@ class PedidosController extends Controller
         $this->repository->create($data);
         \Session::flash('message', 'Pedido criado com sucesso.');
 
-       // $pedidos = $this->repository->findWhereIn('status',[0,1,2])->findWhere(['user_id'=>Auth::user()->id]);
         return redirect()->to(route('pedidos.aberto'));
     }
 
