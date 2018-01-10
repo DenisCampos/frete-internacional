@@ -83,7 +83,9 @@ class PedidosController extends Controller
      */
     public function show($id)
     {
-        //
+        $pedido = $this->repository->find($id);
+        $itenspedido = $this->itenspedidorepository->findWhere(['pedido_id'=>$id]);
+        return  view('pedidos.show', compact('pedido', 'itenspedido'));
     }
 
     public function enviar($id)
@@ -96,9 +98,6 @@ class PedidosController extends Controller
         }else{
             return redirect()->action('PedidosController@aberto');
         }
-
-
-
     }
 
     /**

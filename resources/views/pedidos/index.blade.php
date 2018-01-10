@@ -28,10 +28,7 @@
                         <th>Pedido</th>
                         <th>Cliente</th>
                         <th>Status</th>
-                        <th>Adicionar Itens</th>
-                        <th>Enviar</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Detalhar</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -39,10 +36,7 @@
                         <th>Pedido</th>
                         <th>Cliente</th>
                         <th>Status</th>
-                        <th>Adicionar Itens</th>
-                        <th>Enviar</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Detalhar</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -50,11 +44,8 @@
                     <tr>
                         <td>{{$pedido->id}}</td>
                         <td>{{$pedido->usuario->name}}</td>
-                        <td>{{$pedido->getStatusAttribute($pedido->status)}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$pedido->getStatus($pedido->status)}}</td>
+                        <td><a href="{{route('pedidos.show',['pedido'=>$pedido->id])}}"><i class="fa fa-file-text-o fa-2x"></i></a></td>
                     </tr>
                     @endforeach
                     </tbody>
