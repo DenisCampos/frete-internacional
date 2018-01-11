@@ -47,19 +47,6 @@ class PedidosController extends Controller
         return view('pedidos.abertos', compact('pedidos'));
     }
 
-    public function admin($tipo)
-    {
-        if($tipo=='enviados'){
-            $status = [1,2];
-        }elseif($tipo=='andamentos'){
-            $status = [3,4];
-        }else{
-            $status = [5,6];
-        }
-
-        $pedidos = $this->repository->findWhereIn('status',$status);
-        return view('pedidos.admin', compact('pedidos','tipo'));
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -154,5 +141,42 @@ class PedidosController extends Controller
         //$url = $request->get('redirect_to', route('pacotes.show'));
 
         return  redirect()->to(route('pedidos.aberto'));
+    }
+
+
+    //ADMIN
+    public function admin($tipo)
+    {
+        if($tipo=='enviados'){
+            $status = [1,2];
+        }elseif($tipo=='andamentos'){
+            $status = [3,4];
+        }else{
+            $status = [5,6];
+        }
+
+        $pedidos = $this->repository->findWhereIn('status',$status);
+        return view('pedidos.admin', compact('pedidos','tipo'));
+    }
+
+    public function adminshow($tipo, $id)
+    {
+        $pedido = $this->repository->find($id);
+        $itenspedido = $this->itenspedidorepository->findWhere(['pedido_id'=>$id]);
+        return  view('pedidos.adminshow', compact('pedido', 'itenspedido', 'tipo'));
+    }
+
+    public function adminedit($tipo, $id)
+    {
+        $pedido = $this->repository->find($id);
+        return  view('pedidos.adminedit', compact('pedido', 'tipo'));
+    }
+
+    public function adminupdate(Request $request,$tipo,$id)
+    {
+        $data = $request->all();
+        $this->repository->update($data, $id);
+        $request->session()->flash('message', ' Dados atualizados com sucesso.');
+        return redirect()->action('PedidosController@admin',['tipo'=>$tipo]);
     }
 }

@@ -1,6 +1,12 @@
 {!! Form::hidden('redirect_to', URL::previous()) !!}
 <div class="list-group-item list-group-item-action">
     <div class="row">
+    @if(Auth::user()->tipo==1) 
+    <div class="col-lg-12">
+        {!! Form::label('obs_admin', 'Observação do Administrador', ['class' => 'control-label']) !!}
+        {!! Form::textarea('obs_admin', null, ['class' => 'form-control', 'required' => 'required']) !!}
+    </div>
+    @else
     <div class="col-lg-12">
         {!! Form::label('descricao', 'Descrição', ['class' => 'control-label']) !!}
         {!! Form::text('descricao', null, ['class' => 'form-control', 'required' => 'required']) !!}
@@ -28,7 +34,8 @@
     <div class="col-lg-12">
         {!! Form::label('obs_cliente', 'Observação', ['class' => 'control-label']) !!}
         {!! Form::textarea('obs_cliente', null, ['class' => 'form-control']) !!}
-    </div>  
+    </div> 
+    @endif
 </div>  
 </div>
 

@@ -65,7 +65,14 @@ Route::group(['middleware'=>'auth'], function () {
 
         //pedidos
         Route::get('/pedidos/admin/{tipo}', 'PedidosController@admin')->name('pedidos.admin');
+        Route::get('/pedidos/admin/{tipo}/show/{id}', 'PedidosController@adminshow')->name('pedidos.adminshow');
+        Route::get('/pedidos/admin/{tipo}/edit/{id}', 'PedidosController@adminedit')->name('pedidos.adminedit');
+        Route::put('/pedidos/admin/{tipo}/update/{id}', 'PedidosController@adminupdate')->name('pedidos.adminupdate');
 
+        //item pedidos
+        Route::get('/itenspedido/admin/{tipo}/{pedido}', 'ItensPedidoController@admin')->name('itenspedido.admin');
+        Route::get('/itenspedido/admin/{tipo}/{pedido}/edit/{id}', 'ItensPedidoController@edit')->name('itenspedido.edit');
+        Route::put('/itenspedido/admin/{tipo}/{pedido}/update/{id}', 'ItensPedidoController@update')->name('itenspedido.update');
     });
 
 });

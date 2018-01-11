@@ -9,7 +9,7 @@
             <a href="{{ route('home')}}">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.index')}}">Realizados</a>
+            <a href="{{ route('pedidos.admin',['tipo'=> $tipo])}}">{{ucfirst($tipo)}}</a>
         </li>
         <li class="breadcrumb-item active">Pedido</li>
     </ol>
@@ -84,39 +84,39 @@
             </div>
         </div>
         <div class="col-lg-12 card mb-3">
-            <div class="card-header">
-                <i class="fa fa-archive "></i> Pedido
-            </div>
-            <div class="card-body">
-                <div class="card-body-icon">
-                    <i class="fa fa-fw fa-archive "></i>
+                <div class="card-header">
+                    <i class="fa fa-archive "></i> Pedido
                 </div>
-                <div class="row">
-                    <div class="col-lg-4  form-control">
-                        <strong>Pedido Id:</strong><br>
-                        {{$pedido->id}}
+                <div class="card-body">
+                    <div class="card-body-icon">
+                        <i class="fa fa-fw fa-archive "></i>
                     </div>
-                    <div class="col-lg-4  form-control">
-                        <strong>Status:</strong><br>
-                        {{$pedido->getStatus($pedido->status)}}
+                    <div class="row">
+                        <div class="col-lg-4  form-control">
+                            <strong>Pedido Id:</strong><br>
+                            {{$pedido->id}}
+                        </div>
+                        <div class="col-lg-4  form-control">
+                            <strong>Status:</strong><br>
+                            {{$pedido->getStatus($pedido->status)}}
+                        </div>
+                        <div class="col-lg-4  form-control">
+                            <strong>Rastreio:</strong><br>
+                            {{$pedido->rastreio}}
+                        </div>
+                        <div class="col-lg-12 form-control">
+                            <strong>Observação:</strong><br>
+                            {{$pedido->obs_cliente}}
+                        </div>
+                        @if($pedido->obs_admin)
+                        <div class="col-lg-12 form-control">
+                            <strong>Observação Administrativa:</strong><br>
+                            {{$pedido->obs_admin}}
+                        </div>
+                        @endif
                     </div>
-                    <div class="col-lg-4  form-control">
-                        <strong>Rastreio:</strong><br>
-                        {{$pedido->rastreio}}
-                    </div>
-                    <div class="col-lg-12 form-control">
-                        <strong>Observação:</strong><br>
-                        {{$pedido->obs_cliente}}
-                    </div>
-                    @if($pedido->obs_admin)
-                    <div class="col-lg-12 form-control">
-                        <strong>Observação Administrativa:</strong><br>
-                        {{$pedido->obs_admin}}
-                    </div>
-                    @endif
                 </div>
             </div>
-        </div>
         <div class="col-lg-12 card mb-3">
             <div class="card-header">
                 <i class="fa fa-folder"></i> Pacote

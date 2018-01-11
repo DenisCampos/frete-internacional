@@ -9,10 +9,7 @@
             <a href="{{ route('home')}}">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.create')}}">Pedido</a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="{{ route('pedidos.aberto')}}">Em aberto</a>
+            <a href="{{ route('pedidos.admin',['tipo'=> $tipo])}}">{{ucfirst($tipo)}}</a>
         </li>
         <li class="breadcrumb-item active">Itens</li>
     </ol>
@@ -22,9 +19,6 @@
         <div class="col-lg-12 card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i> Itens do Pedido {{$pedido}}
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{route('itenspedido.create', ['pedido'=> $pedido])}}">Adicionar item<i class="fa fa-cart-plus"></i></a>
-                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -35,9 +29,9 @@
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Link</th>
-                        <th>Observação</th>
+                        <th>Observação do Cliente</th>
                         <th width="10%">Detalhar</th>
-                        <th width="10%">Excluir</th>
+                        <th width="10%">Observação</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -46,9 +40,9 @@
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Link</th>
-                        <th>Observação</th>
+                        <th>Observação do Cliente</th>
                         <th>Detalhar</th>
-                        <th>Excluir</th>
+                        <th>Observação</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -64,7 +58,7 @@
                                 <i class="fa fa-file-text-o fa-2x"></i>
                             </a>
                         </td>
-                        <td><a class="text-danger" href="{{ route('itenspedido.destroy', ['pedido' => $pedido ,'id' => $item->id]) }}"><i class="fa fa-trash fa-2x"></i></a></td>
+                        <td><a class="text-warning" href="{{ route('itenspedido.edit', ['tipo' => $tipo ,'pedido' => $pedido ,'id' => $item->id]) }}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
                     </tr>
                     @endforeach
                     </tbody>

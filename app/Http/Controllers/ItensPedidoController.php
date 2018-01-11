@@ -72,9 +72,10 @@ class ItensPedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($tipo, $pedido, $id)
     {
-        //
+        $item = $this->repository->find($id);
+        return view('itenspedido.edit', compact('tipo', 'pedido', 'item'));
     }
 
     /**
@@ -84,9 +85,12 @@ class ItensPedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $tipo, $pedido, $id)
     {
-        //
+        $data = $request->all();
+        $this->repository->update($data, $id);
+        $request->session()->flash('message', ' Dados atualizados com sucesso.');
+        return redirect()->action('ItensPedidoController@admin', compact('tipo', 'pedido'));
     }
 
     /**
@@ -102,5 +106,13 @@ class ItensPedidoController extends Controller
         //$url = $request->get('redirect_to', route('pacotes.show'));
 
         return  redirect()->to(route('itenspedido.index',compact('pedido')));
+    }
+
+    //ADMIN
+    public function admin($tipo, $pedido)
+    {
+        $itens = $this->repository->findWhere(['pedido_id' => $pedido]);
+
+        return view('itenspedido.admin', compact('tipo','itens','pedido'));
     }
 }

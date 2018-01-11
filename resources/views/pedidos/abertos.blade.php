@@ -56,7 +56,7 @@
                         <td>{{$pedido->getStatus($pedido->status)}}</td>
                         <td><a class="text-default" href="{{route('itenspedido.index',['pedido'=>$pedido->id])}}"><i class="fa fa-cart-plus fa-2x"></i></td>
                         <td><a class="text-success" href="{{route('pedidos.enviar',['pedido'=>$pedido->id])}}"><i class="fa fa-sign-in fa-2x"></i></a></td>
-                        <td><a class="text-warning" href="{{route('pedidos.editadmin',['pedido'=>$pedido->id])}}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+                        <td><a class="text-warning" href="{{route('pedidos.edit',['pedido'=>$pedido->id])}}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
                         <td><a class="text-danger" href="{{route('pedidos.destroy',['pedido'=>$pedido->id])}}"><i class="fa fa-trash fa-2x"></i></a></td>
                     </tr>
                     @endforeach
