@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\PedidosRequest;
@@ -93,10 +94,10 @@ class PedidosController extends Controller
             $data['status'] = 1;
             $this->repository->update($data, $id);
             \Session::flash('message', 'Pedido enviado com sucesso.');
-            return redirect()->action('PedidosController@aberto');
-        }else{
-            return redirect()->action('PedidosController@aberto');
         }
+
+        return redirect()->action('PedidosController@aberto');
+
     }
 
     /**
