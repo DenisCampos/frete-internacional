@@ -54,10 +54,14 @@ class Pedido extends Model implements Transformable
         }else if($status==3){
             return "Aceito";
         }else if($status==4){
-            return "Transporte";
+            return "Itens Recebidos Parcialmente";
         }else if($status==5){
-            return "Finalizado";
+            return "Todos os Itens Recebidos";
         }else if($status==6){
+            return "Em Transporte ao Cliente";
+        }else if($status==7){
+            return "Finalizado";
+        }else if($status==8){
             return "Cancelado";
         }
         

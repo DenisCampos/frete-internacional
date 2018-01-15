@@ -33,7 +33,7 @@ class PedidosController extends Controller
     public function index()
     {
         $pedidos = $this->repository->scopeQuery(function($query){
-            return $query->WhereIn('status',[1,2,3,4,5,6]);
+            return $query->WhereIn('status',[1,2,3,4,5,6,7,8]);
         })->findWhere(['user_id'=>Auth::user()->id]);
 
         return view('pedidos.index', compact('pedidos'));
@@ -150,9 +150,9 @@ class PedidosController extends Controller
         if($tipo=='enviados'){
             $status = [1,2];
         }elseif($tipo=='andamentos'){
-            $status = [3,4];
+            $status = [3,4,5,6];
         }else{
-            $status = [5,6];
+            $status = [7,8];
         }
 
         $pedidos = $this->repository->findWhereIn('status',$status);

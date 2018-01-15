@@ -8,9 +8,11 @@
     {!! Form::label('status', 'Status', ['class' => 'control-label']) !!}<br>
     {!! Form::radio('status', '2', true); !!}{!! Form::label('em analise', 'Em análise', ['class' => 'control-label']) !!}
     {!! Form::radio('status', '3'); !!}{!! Form::label('aceito', 'Aceito', ['class' => 'control-label']) !!}
-    {!! Form::radio('status', '4'); !!}{!! Form::label('transporte', 'Transporte', ['class' => 'control-label']) !!}
-    {!! Form::radio('status', '5'); !!}{!! Form::label('finalizado', 'Finalizado', ['class' => 'control-label']) !!}
-    {!! Form::radio('status', '6'); !!}{!! Form::label('cancelado', 'Cancelado', ['class' => 'control-label']) !!}
+    {!! Form::radio('status', '4'); !!}{!! Form::label('itensrecebidosparcialmente', 'Itens Recebidos Parcialmente', ['class' => 'control-label']) !!}
+    {!! Form::radio('status', '5'); !!}{!! Form::label('todosositensrecebidos', 'Todos os Itens Recebidos', ['class' => 'control-label']) !!}
+    {!! Form::radio('status', '6'); !!}{!! Form::label('emtransporteaocliente', 'Em Transporte ao Cliente', ['class' => 'control-label']) !!}
+    {!! Form::radio('status', '7'); !!}{!! Form::label('finalizado', 'Finalizado', ['class' => 'control-label']) !!}
+    {!! Form::radio('status', '8'); !!}{!! Form::label('cancelado', 'Cancelado', ['class' => 'control-label']) !!}
 @else
     {!! Form::label('pacote_id', 'Pacotes', ['class' => 'control-label']) !!}
     {!! Form::select('pacote_id', $pacotes, null, ['class' => 'form-control']) !!}
