@@ -52,9 +52,9 @@
                         <td>{{$item->quantidade}}</td>
                         <td>${{$item->preco}}</td>
                         <td><a href="{{$item->link}}" target="_blank">Link</a></td>
-                        <td>{{$item->obs}}</td>
+                        <td>{{$item->obs_cliente}}</td>
                         <td>
-                            <a data-toggle="modal" data-target="#DescricaoItem" onclick="item_conteudo('{{$item->cor}}','{{$item->peso}}','{{preg_replace('/\r|\n/', '', nl2br($item->obs))}}')">
+                            <a data-toggle="modal" data-target="#DescricaoItem" onclick="item_conteudo('{{$item->cor}}','{{$item->peso}}','{{preg_replace('/\r|\n/', '', nl2br($item->obs_cliente))}}')">
                                 <i class="fa fa-file-text-o fa-2x"></i>
                             </a>
                         </td>

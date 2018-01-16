@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Mail\MailEnvioPedido;
+use App\Mail\MailPedidoAtualizado;
 use App\Http\Requests\PedidosRequest;
 use App\Repositories\PedidosRepository;
 use App\Repositories\PacotesRepository;
@@ -93,6 +95,8 @@ class PedidosController extends Controller
         if($this->itenspedidorepository->findWhere(['pedido_id'=> $id])->count() > 0){
             $data['status'] = 1;
             $this->repository->update($data, $id);
+            $pedido = $this->repository->find($id);
+            Mail::to('marcosdenersoshelp@gmail.com')->send(new MailEnvioPedido(Auth::user(), $pedido));
             \Session::flash('message', 'Pedido enviado com sucesso.');
         }
 
@@ -177,7 +181,9 @@ class PedidosController extends Controller
     {
         $data = $request->all();
         $this->repository->update($data, $id);
-        $request->session()->flash('message', ' Dados atualizados com sucesso.');
+        $pedido = $this->repository->find($id);
+        Mail::to($pedido->usuario->email)->send(new MailPedidoAtualizado($pedido));
+        $request->session()->flash('message', 'Dados atualizados com sucesso.');
         return redirect()->action('PedidosController@admin',['tipo'=>$tipo]);
     }
 }

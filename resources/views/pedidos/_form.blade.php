@@ -6,6 +6,7 @@
     {!! Form::label('obs_admin', 'Observação', ['class' => 'control-label']) !!}
     {!! Form::textarea('obs_admin', null, ['class' => 'form-control']) !!}
     {!! Form::label('status', 'Status', ['class' => 'control-label']) !!}<br>
+    {!! Form::radio('status', '1', true); !!}{!! Form::label('enviado', 'Enviado', ['class' => 'control-label']) !!}
     {!! Form::radio('status', '2', true); !!}{!! Form::label('em analise', 'Em análise', ['class' => 'control-label']) !!}
     {!! Form::radio('status', '3'); !!}{!! Form::label('aceito', 'Aceito', ['class' => 'control-label']) !!}
     {!! Form::radio('status', '4'); !!}{!! Form::label('itensrecebidosparcialmente', 'Itens Recebidos Parcialmente', ['class' => 'control-label']) !!}

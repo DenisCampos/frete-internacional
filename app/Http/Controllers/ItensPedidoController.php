@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use Illuminate\Http\Request;
+use App\Mail\MailItemPedidoAtualizado;
 use App\Http\Requests\ItensPedidoRequest;
 use App\Repositories\ItensPedidoRepository;
 use App\Repositories\PedidosRepository;
@@ -89,6 +91,8 @@ class ItensPedidoController extends Controller
     {
         $data = $request->all();
         $this->repository->update($data, $id);
+        $itempedido = $this->repository->find($id);
+        Mail::to($itempedido->pedido->usuario->email)->send(new MailItemPedidoAtualizado($itempedido));
         $request->session()->flash('message', ' Dados atualizados com sucesso.');
         return redirect()->action('ItensPedidoController@admin', compact('tipo', 'pedido'));
     }

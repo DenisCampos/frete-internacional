@@ -25,7 +25,7 @@
                             <i class="fa fa-fw fa-folder-o"></i>
                         </div>
                         <div class="list-group list-group-flush">
-                            @include('pacotes\_form')
+                            @include('pacotes._form')
                         </div>
                     </div>
                     <div class="card-footer" align="center">
