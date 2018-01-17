@@ -32,7 +32,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //dd(Auth::user());
+        $usuario = 1;
+        if(Auth::user()->name=="" || Auth::user()->email=="" || Auth::user()->cpf=="" || Auth::user()->rg=="" || Auth::user()->endereco=="" || Auth::user()->numero==""
+        || Auth::user()->bairro=="" || Auth::user()->cidade=="" || Auth::user()->uf=="" || Auth::user()->pais=="" || Auth::user()->cep=="" || Auth::user()->contato==""){
+            $usuario = 0;
+        }
+        return view('home', compact('usuario'));
     }
 
     public function edit(){

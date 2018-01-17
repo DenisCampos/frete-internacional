@@ -10,9 +10,24 @@
     </li>
     </ol>
     <div class="col-lg-12">
-        <h1>Blank</h1>
+        <h1>Home</h1>
         <hr>
-        <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+        @if($usuario==0)
+        <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                <i class="fa fa-fw fa-support"></i>
+                </div>
+                <div class="mr-5">DADOS DO USUÁRIO INCOMPLETOS</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="{{route('edit')}}">
+                <span class="float-left">Preencher agora</span>
+                <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
+        </div>
+        @endif
     </div>
 </div>
 @endsection
