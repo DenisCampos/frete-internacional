@@ -94,6 +94,14 @@ class PedidosController extends Controller
     {
         if($this->itenspedidorepository->findWhere(['pedido_id'=> $id])->count() > 0){
             $data['status'] = 1;
+            $data['endereco'] = Auth::user()->endereco;
+            $data['bairro'] = Auth::user()->bairro;
+            $data['numero'] = Auth::user()->numero;
+            $data['complemento'] = Auth::user()->complemento;
+            $data['cidade'] = Auth::user()->cidade;
+            $data['uf'] = Auth::user()->uf;
+            $data['pais'] = Auth::user()->pais;
+            $data['cep'] = Auth::user()->cep;
             $this->repository->update($data, $id);
             $pedido = $this->repository->find($id);
             Mail::to('marcosdenersoshelp@gmail.com')->send(new MailEnvioPedido(Auth::user(), $pedido));

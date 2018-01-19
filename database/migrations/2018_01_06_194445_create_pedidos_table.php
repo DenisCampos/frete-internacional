@@ -23,6 +23,15 @@ class CreatePedidosTable extends Migration
 			$table->text('obs_cliente')->nullable();
 			$table->text('obs_admin')->nullable();
 			$table->integer('status')->default(0);
+			$table->string('endereco')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('complemento')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf')->nullable();
+            $table->string('pais')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('contato')->nullable();
             $table->timestamps();
 		});
 	}

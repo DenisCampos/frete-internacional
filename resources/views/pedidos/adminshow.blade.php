@@ -50,35 +50,35 @@
                     </div>
                     <div class="col-lg-4 form-control">
                         <strong>Endereço:</strong><br>
-                        {{$pedido->usuario->endereco}}
+                        {{$pedido->endereco}}
                     </div>
                     <div class="col-lg-1 form-control">
                         <strong>Numero:</strong><br>
-                        {{$pedido->usuario->numero}}
+                        {{$pedido->numero}}
                     </div>
                     <div class="col-lg-4 form-control">
                         <strong>Bairro:</strong><br>
-                        {{$pedido->usuario->bairro}}
+                        {{$pedido->bairro}}
                     </div>
                     <div class="col-lg-3 form-control">
                         <strong>Complemento:</strong><br>
-                        {{$pedido->usuario->complemento}}
+                        {{$pedido->complemento}}
                     </div>
                     <div class="col-lg-3 form-control">
                         <strong>Cidade:</strong><br>
-                        {{$pedido->usuario->cidade}}
+                        {{$pedido->cidade}}
                     </div>
                     <div class="col-lg-3 form-control">
                         <strong>UF:</strong><br>
-                        {{$pedido->usuario->uf}}
+                        {{$pedido->uf}}
                     </div>
                     <div class="col-lg-3 form-control">
                         <strong>País:</strong><br>
-                        {{$pedido->usuario->pais}}
+                        {{$pedido->pais}}
                     </div>
                     <div class="col-lg-3 form-control">
                         <strong>CEP:</strong><br>
-                        {{$pedido->usuario->cep}}
+                        {{$pedido->cep}}
                     </div>
                 </div>
             </div>

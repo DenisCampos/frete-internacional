@@ -28,8 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('cidade')->nullable();
             $table->string('uf')->nullable();
             $table->string('pais')->nullable();
-            $table->integer('cep')->nullable();
-            $table->integer('contato')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('contato')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -12,18 +12,6 @@ class Pedido extends Model implements Transformable
 
     protected $table = 'pedidos';
 
-    /*
-
-    0 -> Criado
-    1 -> Enviado
-    2 -> Em Análise
-    3 -> Aceito
-    4 -> Transporte
-    5 -> Finalizado
-    6 -> Cancelado
-
-    */
-
     protected $fillable = [
         'user_id',
         'pacote_id',
@@ -31,6 +19,14 @@ class Pedido extends Model implements Transformable
         'obs_cliente',
         'obs_admin',
         'status',
+        'endereco', 
+        'bairro', 
+        'numero', 
+        'complemento', 
+        'cidade', 
+        'uf', 
+        'pais', 
+        'cep'
     ];
 
     public function usuario()
